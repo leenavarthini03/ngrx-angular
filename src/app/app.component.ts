@@ -1,3 +1,4 @@
+import { AppState } from './reducers/index';
 import {Component, OnInit} from '@angular/core';
 import {select, Store} from "@ngrx/store";
 import {Observable} from "rxjs";
@@ -13,7 +14,7 @@ export class AppComponent implements OnInit {
 
     loading = true;
 
-    constructor(private router: Router) {
+    constructor(private router: Router,private store: Store<AppState>) {
 
     }
 
@@ -41,7 +42,7 @@ export class AppComponent implements OnInit {
     }
 
     logout() {
-
+      this.router.navigateByUrl('/login');
     }
 
 }
